@@ -1,0 +1,49 @@
+#firstMask {
+    padding: 15rem 0;
+    position: relative;
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+
+        mask {
+
+            text {
+                stroke-width: 2;
+                stroke-dasharray: 1000;
+                stroke-dashoffset: 1000;
+                stroke: white;
+                fill: none;
+                animation-name: strokeDashOffsetOut, fillIn;
+                animation-duration: 3000ms, 500ms;
+                animation-delay: 0ms, 1200ms;
+                animation-timing-function: ease-in, ease-out;
+                animation-iteration-count: 1, 1;
+                animation-fill-mode: forwards;
+            }
+
+        }
+
+
+    }
+
+}
+
+ /* The animation code */
+ @keyframes strokeDashOffsetOut {
+    0%   {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fillIn {
+    0%   {
+        fill: black;
+    }
+    100% {
+        fill: white;
+    }
+}
