@@ -8,7 +8,16 @@ module.exports = {
     description: `A site to showcase things I have done.`,
     siteUrl: `https://jacksonweb.dev/`,
     social: {
-      // twitter: `kylemathews`,
+      names: [`LinkedIn`],
+      links: [`https://www.linkedin.com/in/daniel-jackson-53700812`],
+      colors: [
+        // `2867B2`, 
+        `211F1F`,
+        `F4CBB2`,
+        `AD5C51`,
+        `9CDAF1`,
+        `7DBBE6`
+      ]
     },
     accouncement_text: ['Hello', 'There!']
   },

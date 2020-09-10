@@ -6,23 +6,43 @@
         top: 50%;
         left: 0;
         transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
 
         mask {
-
             text {
                 stroke-width: 2;
                 stroke-dasharray: 1000;
                 stroke-dashoffset: 1000;
-                stroke: white;
+                stroke: rgb(110, 177, 216);
                 fill: none;
-                animation-name: strokeDashOffsetOut, fillIn;
-                animation-duration: 3000ms, 500ms;
-                animation-delay: 0ms, 1200ms;
-                animation-timing-function: ease-in, ease-out;
-                animation-iteration-count: 1, 1;
+            }
+        }
+        image {
+            opacity: 0;
+        }
+
+        &.animate {
+            mask {
+
+                text {
+                    animation-name: strokeDashOffsetOut, fillIn;
+                    animation-duration: 3000ms, 500ms;
+                    animation-delay: 0ms, 1200ms;
+                    animation-timing-function: ease-in, ease-out;
+                    animation-iteration-count: 1, 1;
+                    animation-fill-mode: forwards;
+                }
+    
+            }
+            image {
+                animation-name: fadeIn;
+                animation-duration: 500ms;
+                animation-delay: 1200ms;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
                 animation-fill-mode: forwards;
             }
-
         }
 
 
@@ -45,5 +65,13 @@
     }
     100% {
         fill: white;
+    }
+}
+@keyframes fadeIn {
+    0%   {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

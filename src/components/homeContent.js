@@ -7,6 +7,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { useStaticQuery, graphql } from "gatsby"
+import Section from 'react-bulma-components/lib/components/section';
+import Container from 'react-bulma-components/lib/components/container';
+import Content from 'react-bulma-components/lib/components/content';
+import Columns from 'react-bulma-components/lib/components/columns';
 import MaskSVG from './maskSVG'
 
 const HomeContent = () => {
@@ -26,6 +30,11 @@ const HomeContent = () => {
     site {
         siteMetadata {
             accouncement_text
+            social {
+                names
+                links
+                colors
+            }
         }
       }
     content: allMarkdownRemark(
@@ -51,23 +60,34 @@ const HomeContent = () => {
   `)
   const content = data.content.edges[0].node
   const metaData = data.site.siteMetadata
+
   return (
-    <div>
-       
-        <div id="firstMask" className="maskContainer">
-            <MaskSVG 
-                accouncement_text={metaData.accouncement_text}
-                parent_width={width}
-                parent_height={height}
-            ></MaskSVG>
-        </div>
+    
+    <Content>
       
-      {/* <p
-        dangerouslySetInnerHTML={{
-        __html: content.excerpt,
-        }}
-        /> */}
-    </div>
+        <Section id="svgSection">
+        <Container>
+          
+            <div id="firstMask" className="maskContainer">
+                <MaskSVG 
+                    accouncement_text={metaData.accouncement_text}
+                    parent_width={width}
+                    parent_height={height}
+                    social={metaData.social}
+                ></MaskSVG>
+            </div>
+           
+          </Container>
+        </Section>
+      
+        <Section id="mainSection">
+        {/* <p
+          dangerouslySetInnerHTML={{
+          __html: content.excerpt,
+          }}
+          /> */}
+        </Section>
+    </Content>
   )
 }
 
