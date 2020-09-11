@@ -5,7 +5,8 @@
 import React, { useState } from "react"
 
 import daniel from "../../content/assets/daniel.jpg"
-import RepeatClipPath from "./repeatClipPath"
+import RepeatClipPathSocial from "./repeatClipPathSocial"
+import RepeatClipPathBG from "./repeatClipPathSocial"
 import RepeatRect from "./repeatRect"
 
 const MaskSVG = ( props ) => {
@@ -27,6 +28,8 @@ const MaskSVG = ( props ) => {
     const imgClipXStartTop = imgClipXStartBottom + imgClipXModifier
     const imgClipXEndTop = imgClipXStartTop + imgClipXStartTop - imgClipXModifier
     const imgClipXEndBottom = imgClipXEndTop - imgClipXModifier
+    const imgW = 500
+    const imgH = 500
 
     return (
         <div>
@@ -93,18 +96,26 @@ const MaskSVG = ( props ) => {
                     </clipPath>
                     
                     <clipPath id="middleClip">
-                        <path 
-                            d={'M' + imgClipXStartBottom + ' ' + parentHeight + ' L' + imgClipXStartTop + ' 0 H' + imgClipXEndTop + ' L' + imgClipXEndBottom + ' ' + parentHeight + ' H' + imgClipXStartBottom + ' 0' } 
-                        />
+<path 
+    style={{transform:'translateY(' + imgH/2 + 'px)'}}
+    d={'M0 0' + 'H' + imgClipXModifier + ' L' + imgW + ' ' + imgH + ' H0' + ' Z'} 
+/>
                     </clipPath>
+
+                    <RepeatClipPathBG
+                        parent_width={parentWidth}
+                        parent_height={parentHeight}
+                        starting_point={imgClipXEndBottom}
+                        modifier={imgClipXModifier}
+                    ></RepeatClipPathBG>
                         
-                    <RepeatClipPath
+                    <RepeatClipPathSocial
                         parent_width={parentWidth}
                         parent_height={parentHeight}
                         social={social}
                         starting_point={imgClipXEndBottom}
                         modifier={imgClipXModifier}
-                    ></RepeatClipPath>
+                    ></RepeatClipPathSocial>
 
 
                 
@@ -134,7 +145,9 @@ const MaskSVG = ( props ) => {
 
                 <image 
                     clipPath="url(#middleClip)" 
-                    height="100%" width="100%" 
+                    height={imgH} width={imgW} 
+                    x="0" y="50%"
+                    style={{transform:'translateY(-' + imgH/2 + 'px)'}}
                     xlinkHref={daniel} 
                     onLoad={() => setLoaded(true)}
                 />

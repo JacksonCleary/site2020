@@ -5,3 +5,9 @@ h1,h2,h3,h4,h5,h6 {
 header #headerSection h1 {
     color: #ECE4DE;
 }
+
+body .content {
+    h1,h2,h3,h4,h5,h6, p {
+        color: #ECE4DE;
+    }
+}

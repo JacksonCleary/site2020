@@ -5,25 +5,16 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from "gatsby"
 import Section from 'react-bulma-components/lib/components/section';
 import Container from 'react-bulma-components/lib/components/container';
 import Content from 'react-bulma-components/lib/components/content';
 import Columns from 'react-bulma-components/lib/components/columns';
-import MaskSVG from './maskSVG'
+
+import HeroSVGS from './heroSVGS'
 
 const HomeContent = () => {
-
-    const [height, setHeight] = useState(0);
-    const [width, setWidth] = useState(0);
-
-    useEffect(() => {
-        const width = document.getElementById('firstMask').clientWidth;
-        const height = document.getElementById('firstMask').clientHeight;
-        setHeight(height)
-        setWidth(width)
-    });
     
   const data = useStaticQuery(graphql`
   query {
@@ -47,6 +38,7 @@ const HomeContent = () => {
             slug
             parentSlug
           }
+          html
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
@@ -64,28 +56,19 @@ const HomeContent = () => {
   return (
     
     <Content>
-      
-        <Section id="svgSection">
-        <Container>
-          
-            <div id="firstMask" className="maskContainer">
-                <MaskSVG 
-                    accouncement_text={metaData.accouncement_text}
-                    parent_width={width}
-                    parent_height={height}
-                    social={metaData.social}
-                ></MaskSVG>
-            </div>
-           
-          </Container>
-        </Section>
+
+        <div id="heroSVGS">
+            
+            <HeroSVGS></HeroSVGS>
+
+        </div>
+         
       
         <Section id="mainSection">
-        {/* <p
-          dangerouslySetInnerHTML={{
-          __html: content.excerpt,
-          }}
-          /> */}
+          <Container>
+            <section dangerouslySetInnerHTML={{ __html: content.html }} />
+          </Container>
+        
         </Section>
     </Content>
   )

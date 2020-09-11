@@ -7,6 +7,7 @@ import Section from 'react-bulma-components/lib/components/section';
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   let header
+  let date = new Date().getFullYear()
 
     header = (
       <h1>
@@ -28,7 +29,12 @@ const Layout = ({ location, title, children }) => {
       
       <main>{children}</main>
       <footer>
-        
+        <Section id="headerSection">
+          <Container>
+            @{date} - made with <a href="https://www.gatsbyjs.com/" target="_blank">Gatsby.js</a>
+          </Container>
+        </Section>
+       
       </footer>
     </div>
   )

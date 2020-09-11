@@ -1,10 +1,10 @@
 /**
- * RepeatClipPath component to house repeating clipped shapes
+ * RepeatClipPathBG component to house repeating clipped shapes
 */
 
 import React, {useEffect} from "react"
 
-const RepeatClipPath = ( props ) => {
+const RepeatClipPathBG = ( props ) => {
 
     const parentHeight = props.parent_height
     const startingPoint = props.starting_point
@@ -35,4 +35,4 @@ const RepeatClipPath = ( props ) => {
     )
 }
 
-export default RepeatClipPath
+export default RepeatClipPathBG

@@ -1,3 +1,39 @@
+#heroSVGS {
+    position: relative;
+}
+#sunSVG {
+    padding: 10rem 0;
+    position: relative;
+    svg#heroSVG {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+    }
+}
+
+#treesContainer {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    top: -100px;
+    margin-bottom: -100px;
+    div.trees {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    #tree1 { background-image: url(/trees/1.svg) }
+    #tree2 { background-image: url(/trees/2.svg) }
+    #tree3 { background-image: url(/trees/3.svg) }
+    #tree4 { background-image: url(/trees/4.svg) }
+    #tree5 { background-image: url(/trees/5.svg) }
+}
+
 #firstMask {
     padding: 15rem 0;
     position: relative;
