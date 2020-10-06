@@ -9,9 +9,7 @@ const RepeatClipPathBG = ( props ) => {
     const parentHeight = props.parent_height
     const startingPoint = props.starting_point
     const clipXModifier = props.modifier
-    useEffect(() => {
-        // console.log(props.social)
-    })
+    useEffect(() => {})
 
     return (
         <>

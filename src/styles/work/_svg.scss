@@ -1,0 +1,20 @@
+
+#danielPortraitTraceContainer {
+    svg {
+        path {
+            stroke-width: 2;
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 10000;
+        }
+    }
+    &.animate {
+        svg path {
+            animation-name: strokeDashOffsetOut, fillIn, fadeOut;
+            animation-duration: 2000ms, 500ms, 500ms;
+            animation-delay: 0ms, 1500ms, 4000ms;
+            animation-timing-function: ease-in-out, ease-in-out, ease-in-out;
+            animation-iteration-count: 1, 1, 1;
+            animation-fill-mode: forwards;
+        }
+    }
+}

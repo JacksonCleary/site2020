@@ -1,0 +1,22 @@
+#danielPortraitTraceContainer {
+    img {
+        border: 2px solid gold;
+        border-radius: 500px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        opacity: 0;
+    }
+    &.animate {
+        img {
+            animation-name: fadeIn;
+            animation-duration: 500ms;
+            animation-delay: 2500ms;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+    }
+}

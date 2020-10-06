@@ -1,0 +1,86 @@
+ /* The animation code */
+ @keyframes strokeDashOffsetOut {
+    0%   {
+        stroke-dashoffset: 5000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fillInSVGBack {
+    0%   {
+        fill: transparent;
+    }
+    100% {
+        fill: #4A7791;
+    }
+}
+@keyframes fillInSVGFront {
+    0%   {
+        fill: transparent;
+    }
+    100% {
+        fill: #8C3B3A;
+    }
+}
+@keyframes fillIn {
+    0%   {
+        fill: #2f3e46;
+    }
+    100% {
+        fill: #6eb1d8;
+    }
+}
+@keyframes fadeIn {
+    0%   {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0%   {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes wiggleIn {
+    0% {
+      transform: rotate(1deg);
+      animation-timing-function: ease-in-out;
+    }
+
+    50% {
+      transform: rotate(-1.5deg);
+      animation-timing-function: ease-in-out;
+    }
+}
+@keyframes wiggleOut {
+    0% {
+      transform: rotate(-1deg);
+      animation-timing-function: ease-in-out;
+    }
+
+    50% {
+      transform: rotate(1.5deg);
+      animation-timing-function: ease-in-out;
+    }
+}
+
+// React Modal Class Transitions:
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}

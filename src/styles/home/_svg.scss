@@ -86,28 +86,87 @@
 
 }
 
- /* The animation code */
- @keyframes strokeDashOffsetOut {
-    0%   {
-        stroke-dashoffset: 1000;
+#textSVGContainer {
+
+    -webkit-perspective: 140px;
+    perspective: 140px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    #textSVG {
+        -webkit-transform: rotateX(2deg) rotateY(-15deg);
+        transform: rotateX(2deg) rotateY(-15deg);
+       
+        text {
+            font-family: 'Oleo Script', cursive;
+            font-size: 80px;
+            stroke-width: 3;
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 5000;
+            -webkit-transform: rotateX(2deg) rotateY(-15deg);
+            transform: rotateX(2deg) rotateY(-15deg);
+            
+            &.textBack {
+                fill: transparent;
+                stroke: gold;
+            }
+            &.textFront {
+                // display: none;
+                stroke-width: 1;
+                fill: transparent;
+                stroke: #fff;
+            }
+        }
+
+        path {
+            fill: transparent;
+            stroke: #8C3B3A;
+            stroke-width: 5;
+            stroke-dasharray: 5000;
+            stroke-dashoffset: 5000;
+            &:first-child {
+                stroke: none;
+            }
+        }
+
+        &.animate {
+            text {                
+                &.textBack {
+                    animation-name: fillInSVGBack;
+                    animation-duration: 1000ms;
+                    animation-delay: 0ms;
+                    animation-timing-function: ease-in-out;
+                    animation-iteration-count: 1;
+                    animation-fill-mode: forwards;
+                }
+                &.textFront {
+                    stroke-width: 2;
+                    animation-name: strokeDashOffsetOut, fillInSVGFront;
+                    animation-duration: 9000ms, 500ms;
+                    animation-delay: 0ms, 1500ms;
+                    animation-timing-function: ease-in-out, ease-in-out;
+                    animation-iteration-count: 1, 1;
+                    animation-fill-mode: forwards;
+                    // animation-name: strokeDashOffsetOut;
+                    // animation-duration: 9000ms;
+                    // animation-delay: 0ms;
+                    // animation-timing-function: ease-in-out;
+                    // animation-iteration-count: 1;
+                    // animation-fill-mode: forwards;
+                }
+            }
+            #curveLine {
+                animation-name: strokeDashOffsetOut;
+                animation-duration: 1000ms;
+                animation-delay: 1500ms;
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: 1;
+                animation-fill-mode: forwards;
+            }
+        }
+
     }
-    100% {
-        stroke-dashoffset: 0;
-    }
-}
-@keyframes fillIn {
-    0%   {
-        fill: black;
-    }
-    100% {
-        fill: white;
-    }
-}
-@keyframes fadeIn {
-    0%   {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+
 }

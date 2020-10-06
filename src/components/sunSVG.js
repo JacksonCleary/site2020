@@ -5,11 +5,10 @@
 import React, { useState } from "react"
 
 import RayClips from "./rayClips"
-import TreeSVGS from "./treeSVGS"
 
 const SunSVG = ( props ) => {
 
-    const [loaded, setLoaded] = useState(true);
+    const [loaded] = useState(true);
     const parentWidth = Math.floor(props.parent_width)
     const parentHeight = Math.floor(props.parent_height)
     

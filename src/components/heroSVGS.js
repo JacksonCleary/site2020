@@ -5,6 +5,8 @@
 import React, { useState, useEffect } from "react"
 
 import SunSVG from './sunSVG'
+import TextSVG from './textSVG'
+import EventFunctions from './utility/eventFunctions'
 
 const HeroSVGS = ( props ) => {
 
@@ -12,12 +14,28 @@ const HeroSVGS = ( props ) => {
     const [height, setHeight] = useState(0);
 
     useEffect(() => {
+        setSize()
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [handleResize]);
+
+    const handleResize =  EventFunctions.debounce( function(){
+        setSize()
+    }, 300 )
+
+    const setSize = () => {
+
         const parentWidth = Math.floor(document.getElementById('sunSVG').clientWidth)
         const parentHeight = Math.floor(document.getElementById('sunSVG').clientHeight)
         setWidth(parentWidth)
         setHeight(parentHeight)
-    });
 
+    }
     
     return (
         <>
@@ -27,6 +45,11 @@ const HeroSVGS = ( props ) => {
                     parent_height={height}
                 >
                 </SunSVG>
+                <TextSVG
+                    parent_width={width}
+                    parent_height={height}
+                >
+                </TextSVG>
             </div>
             <div id="treesContainer">
                 <div id="tree1" className="trees"></div>

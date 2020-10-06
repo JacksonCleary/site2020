@@ -26,6 +26,7 @@ const SunSVG = ( props ) => {
                     return (
 
                     <path
+                        key={'sunRay_' + index}
                         transform={'rotate(' + (degreeStart + (degreeModifier*index)) + ' ' + parentWidthHalf + ' ' + parentHeight +')'}
                         d={
                             'M' + (parentWidthHalf - rayClipModifierBase) + ' ' + parentHeight + 

@@ -1,0 +1,158 @@
+.projects {
+
+    #mainSection {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+
+    #mainSection > .columns {
+        margin-top: 0;
+        margin-bottom: 0;
+        &:first-child {
+            background-color: #ECE4DE;
+        }
+    }
+
+    h1#title {
+        margin-bottom: 0;
+        color: #2f3e46;
+    }
+
+    #mainSection #projectContent {
+        min-height: 90vh;
+    }
+
+    #mainSection #projectContent .column {
+        border-right:1px solid #ECE4DE;
+    }
+
+    .projectNameColumn, .projectDescriptionColumn {
+        position: -webkit-sticky; /* Safari */
+        position: sticky;
+        top: 25px;
+    }
+
+    .projectNameColumn {
+
+        a {
+            display: block;
+            padding: 0.5rem;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            &:hover, &:active {
+                background-color: gold;
+                color: #2f3e46;
+            }
+            &.selected {
+                background-color: #4BB543;
+                color: #ECE4DE;
+            }
+        }
+
+    }
+
+    #projectImages {
+
+        .hoverPlaceholder, .gatsby-image-wrapper {
+            margin-bottom: 0.75rem;
+            border-radius: 5px;
+            border-width: 2px;
+            border-style: dashed;
+        }
+
+        .hoverPlaceholder {
+            position: relative;
+            border-color: gold;
+            
+            // animation-iteration-count: infinite;
+            // animation-direction: alternate;
+            // transform-origin: 30% 5%;
+            // animation-duration: 1.5s;
+            // &:nth-child(2n) {animation-name: wiggleIn;}
+            // &:nth-child(2n-1) {animation-name: wiggleOut;}
+            
+            &:after {
+                content: '';
+                display: inline-block;
+                padding-bottom: 100%;
+            }
+        }
+
+        .gatsby-container {
+            &:hover, &:focus, &:active {
+                .gatsby-image-wrapper::after {
+                    border-right-color: #ECE4DE;
+                    border-bottom-color: #ECE4DE;
+                }
+            }
+        }
+
+        .gatsby-image-wrapper {
+            border-color: #6eb1d8;
+            border-style: solid;         
+            border-width: 4px;
+        }
+
+        
+        .gatsby-image-wrapper::before,
+        .gatsby-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-color: transparent;
+            border-style: solid;
+        }
+        
+        .gatsby-image-wrapper::before {
+            z-index: 2;
+            border-width: 2.5em;
+            border-right-color: #6eb1d8;
+            border-bottom-color: #6eb1d8;
+        }
+        
+        .gatsby-image-wrapper::after {
+            z-index: 3;
+            border-radius: 0;
+            border-width: 2.25em;
+            border-right-color: #2f3e46;
+            border-bottom-color: #2f3e46;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        a.dIcon {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 4;
+            background-position: calc(100% - 12px) calc(100% - 12px);
+
+        }
+    }
+
+    .projectHTMLColumn {
+
+        .button {
+            background-color: #4BB543;
+            border-color: #dbdbdb;
+            border-width: 1px;
+            color: #ECE4DE;
+            cursor: pointer;
+            justify-content: center;
+            padding-bottom: calc(.5em - 1px);
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-top: calc(.5em - 1px);
+            text-align: center;
+            white-space: nowrap;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            &:hover, &:active {
+                background-color: gold;
+                color: #2f3e46;
+            }
+        }
+    }
+
+}

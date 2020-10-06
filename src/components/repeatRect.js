@@ -13,7 +13,6 @@ const RepeatRect = ( props ) => {
     return (
         <>
             {props.social.colors.map((key,index) => {
-                console.log(index)
                 const loopStartingPoint = startingPoint + ( clipXModifier * index )
                 return (
                     <React.Fragment key={key}>

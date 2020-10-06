@@ -6,12 +6,9 @@ import React, {useEffect} from "react"
 
 const RepeatClipPathSocial = ( props ) => {
 
-    const parentHeight = props.parent_height
     const startingPoint = props.starting_point
     const clipXModifier = props.modifier
-    useEffect(() => {
-        // console.log(props.social)
-    })
+    useEffect(() => {})
 
     return (
         <>
@@ -20,9 +17,9 @@ const RepeatClipPathSocial = ( props ) => {
                 {[...Array(5)].map((key, index) => {
                     const loopStartingPoint = startingPoint + ( clipXModifier * index )
                     return (
-<path 
-    d={'M0 0'}
-/>
+                        <path 
+                            d={'M0 0'}
+                        />
                         
                     )
 
