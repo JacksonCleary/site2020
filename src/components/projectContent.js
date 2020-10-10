@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState, useCallback} from "react"
 import BodyClassName from 'react-body-classname';
 
 import Content from 'react-bulma-components/lib/components/content';
@@ -6,10 +6,16 @@ import Columns from 'react-bulma-components/lib/components/columns';
 
 import Arr from './utility/arrayFunctions'
 
-import ProjectColumnName from './projectColumnName'
-import ProjectColumnDescription from './projectColumnDescription'
-import ProjectColumnPictures from './projectColumnPictures'
-import ProjectColumnContent from './projectColumnContent'
+import ProjectContentHOC from './projectContentHOC'
+import pNames from './projectColumnName'
+import pDescriptions from './projectColumnDescription'
+import pPictures from './projectColumnPictures'
+import pContent from './projectColumnContent'
+
+const ProjectColumnName = ProjectContentHOC(pNames)
+const ProjectColumnDescription = ProjectContentHOC(pDescriptions)
+const ProjectColumnPictures = ProjectContentHOC(pPictures)
+const ProjectColumnContent = ProjectContentHOC(pContent)
 
 const ProjectContent = (props) => {
     const projects = props.projects.edges
@@ -22,6 +28,7 @@ const ProjectContent = (props) => {
     const [defaultID, setDefaultID] = useState(null)
     const [selectedID, setSelectedID] = useState(null)
     const [hoveringID, setHoveringID] = useState(null)
+    const [delayHoverHandler, setDelayHoverHandler] = useState(null)
 
     useEffect(() => {
         if ( !defaultID ) {
@@ -32,15 +39,22 @@ const ProjectContent = (props) => {
         }
     })
 
+    // useEffect(() => {
+    //         clearTimeout(delayHoverHandler)
+    // }, [hoveringID])
+
     const onClickCallback = (id) => {
         setSelectedID(id)
         setHoveringID(null)
     }
     const onMouseEnterCallback = (id) => {
-        setHoveringID(id)
+        setDelayHoverHandler(setTimeout(() => {
+            setHoveringID(id)
+        }, 500))    
     }
+
     const onMouseExitCallback = () => {
-        setHoveringID(null)
+        clearTimeout(delayHoverHandler)
     }
 
     const loopTitles = () => {
@@ -85,7 +99,10 @@ const ProjectContent = (props) => {
 
                         </Columns.Column>
                         <Columns.Column size={2} >
-                            <div className="projectNameColumn"> 
+                            <div 
+                                className="projectNameColumn"
+                                onMouseLeave={() => setHoveringID(null)}    
+                            > 
                                 {loopTitles()}
                             </div>
                         </Columns.Column>

@@ -6,12 +6,10 @@ const eventFunctions = {
     debounce: function(func, wait, immediate) {
         var timeout;
         return function() {
-            console.log('start debounce')
             var context = this, args = arguments;
             var later = function() {
                 timeout = null;
                 if (!immediate) {
-                    console.log('fire')
                     func.apply(context, args);
                 }
             };

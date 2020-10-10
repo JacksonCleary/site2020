@@ -5,11 +5,13 @@ import ContentLoader from 'react-content-loader'
 class ProjectColumnContent extends React.Component {
 
     renderLoader = () => {
+        let randomBackgroundColor = Math.floor(Math.random()*16777215).toString(16);
+        let randomForegroundColor = Math.floor(Math.random()*16777215).toString(16);
         return (
             <ContentLoader 
                 viewBox="0 0 380 300"
-                backgroundColor={'#6eb1d8'}
-                foregroundColor={'#ECE4DE'}
+                backgroundColor={'#' + randomBackgroundColor}
+                foregroundColor={'#' + randomForegroundColor}
             >
               {/* Only SVG shapes */}    
               <rect x="0" y="0" rx="5" ry="5" width="380" height="70" />
@@ -39,9 +41,6 @@ class ProjectColumnContent extends React.Component {
             }
             else if ( hoveringID ) {
                 return this.renderLoader()
-            }
-            else {
-                return (<div><h1>none</h1></div>)
             }
         }
         else {
