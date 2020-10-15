@@ -1,1 +1,1 @@
-A redesign of my site, created with <a href="https://www.gatsbyjs.com/" target="_blank" title="Gatsby">Gatsby</a>
+A redesign of my site, created with <a href="https://www.gatsbyjs.com/" target="_blank" title="Gatsby">Gatsby</a>.
