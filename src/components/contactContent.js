@@ -27,7 +27,7 @@ const ContactContent = () => {
             <Section id="mainSection">
                 <Container>
 
-                        <Columns.Column size={10} offset={1}>
+                        <Columns.Column size={12}>
                             <h1>Contact Me</h1>
                             <p>Send me a message; I'll do my best to respond ASAP.</p>
                             <hr />

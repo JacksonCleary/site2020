@@ -8,9 +8,11 @@
     #mainSection > .columns {
         margin-top: 0;
         margin-bottom: 0;
-        &:first-child {
-            background-color: #ECE4DE;
-        }
+    }
+
+    #projectsHeader {
+        background-color: #ECE4DE;
+        .columns { margin-top: 0;}
     }
 
     h1#title {
@@ -20,10 +22,13 @@
 
     #mainSection #projectContent {
         min-height: 90vh;
+        margin-bottom: 0;
     }
 
     #mainSection #projectContent .column {
         border-right:1px solid #ECE4DE;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
     }
 
     .projectNameColumn, .projectDescriptionColumn {
@@ -155,4 +160,9 @@
         }
     }
 
+}
+
+@media screen and (max-width: 768px) {
+
+    .projects #projectsHeader .column { padding: 0.75rem;}
 }

@@ -1,5 +1,7 @@
 header {
     margin-bottom: 50px;
+    position: relative;
+    z-index: 5;
     #headerSection {
         padding: 0;
         background: rgb(110, 177, 216);
@@ -47,6 +49,7 @@ header {
     .desktop {
         display: none;
     }
+    header { margin-bottom: 60px}
     header .headerContent {
         justify-content: flex-start;
     }

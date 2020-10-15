@@ -9,12 +9,12 @@ class ProjectColumnContent extends React.Component {
         let randomForegroundColor = Math.floor(Math.random()*16777215).toString(16);
         return (
             <ContentLoader 
-                viewBox="0 0 380 300"
+                viewBox="0 0 680 600"
                 backgroundColor={'#' + randomBackgroundColor}
                 foregroundColor={'#' + randomForegroundColor}
             >
               {/* Only SVG shapes */}    
-              <rect x="0" y="0" rx="5" ry="5" width="380" height="70" />
+              <rect x="0" y="0" rx="5" ry="5" width="680" height="70" />
               <rect x="0" y="87" rx="4" ry="4" width="300" height="13" />
               <rect x="320" y="87" rx="4" ry="4" width="60" height="13" />
               <rect x="0" y="116" rx="4" ry="4" width="20" height="13" />
@@ -34,7 +34,6 @@ class ProjectColumnContent extends React.Component {
         var isSelected = this.assignSelected(hoveringID, selectedID)
 
         let activeHTML = this.props.activeHTML[isSelected] || null
-        
         if ( activeHTML ) {
             if ( selectedID && !hoveringID ) {
                 return this.renderContent(activeHTML)

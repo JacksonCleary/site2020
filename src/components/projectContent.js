@@ -3,6 +3,7 @@ import BodyClassName from 'react-body-classname';
 
 import Content from 'react-bulma-components/lib/components/content';
 import Columns from 'react-bulma-components/lib/components/columns';
+import Container from 'react-bulma-components/lib/components/container';
 
 import Arr from './utility/arrayFunctions'
 
@@ -82,34 +83,28 @@ const ProjectContent = (props) => {
 
             <Content id="mainSection">
 
-                    <Columns>
-                        <Columns.Column 
-                            offset={1}
-                            size={2} 
-                        >
-                            <h1 id="title">Projects</h1>
-                        </Columns.Column>
-                    </Columns>
+                <div id="projectsHeader">
+                    <Container>
+                        <Columns>
+                            <Columns.Column 
+                                size={12} 
+                            >
+                                <h1 id="title">Projects</h1>
+                            </Columns.Column>
+                        </Columns>
+                    </Container>
+                </div>
+
+                <Container>
                 
                     <Columns id="projectContent">
-                        <Columns.Column size={1} >
-
-                        </Columns.Column>
-                        <Columns.Column size={2} >
+                        <Columns.Column size={3} >
                             <div 
                                 className="projectNameColumn"
                                 onMouseLeave={() => setHoveringID(null)}    
                             > 
                                 {loopTitles()}
                             </div>
-                        </Columns.Column>
-                        <Columns.Column size={2} >
-                            <ProjectColumnDescription
-                                descriptions={descriptions}
-                                selectedID={selectedID}
-                                hoveringID={hoveringID}
-                            >
-                            </ProjectColumnDescription>
                         </Columns.Column>
                         <Columns.Column size={3} >
                             <ProjectColumnPictures
@@ -126,11 +121,9 @@ const ProjectContent = (props) => {
                                 activeHTML={content}
                             ></ProjectColumnContent>
                         </Columns.Column>
-                        <Columns.Column size={1} >
-
-                        </Columns.Column>
-
                     </Columns>
+
+                </Container>
                 
             </Content>
 
