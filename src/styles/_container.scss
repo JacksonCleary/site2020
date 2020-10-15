@@ -1,6 +1,16 @@
-#headerSection {
-    padding: 0;
-    background: rgb(110, 177, 216);
+header {
+    margin-bottom: 50px;
+    #headerSection {
+        padding: 0;
+        background: rgb(110, 177, 216);
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+    }
+    .headerContent {
+        justify-content: space-between;
+    }
 }
 
 #svgSection {
@@ -20,10 +30,24 @@
 
 .paddingTopZero {padding-top: 0;}
 
+.vertical_align {
+    display: flex;
+    align-items: center;
+    .hamburger-react {
+        margin-left: 0.25rem;
+    }
+}
 
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 768px) {
     body .content .columns {
       margin-left: 0;
       margin-right: 0;
     }
-  }
+    .desktop {
+        display: none;
+    }
+    header .headerContent {
+        justify-content: flex-start;
+    }
+}

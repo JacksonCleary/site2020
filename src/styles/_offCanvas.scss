@@ -1,0 +1,17 @@
+#offcanvas-root {
+    .desktop { display: none; }
+    .headerContent {
+        border-bottom: 2px solid whitesmoke;
+        justify-content: flex-start;
+    }
+}
+
+.hamburger-react {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-react {
+        display: block;
+    }
+}

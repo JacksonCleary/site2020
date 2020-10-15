@@ -1,4 +1,4 @@
-#headerSection h1 {
+.headerContent h1 {
     margin: 0;
     padding: .5rem 0;
     font-size: 1.5em;
@@ -6,5 +6,11 @@
     a {
         box-shadow: none;
         color: inherit
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .headerContent h1 {
+      padding: 0.75rem;
     }
 }

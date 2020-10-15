@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useCallback} from "react"
+import React, {useEffect, useState} from "react"
 import BodyClassName from 'react-body-classname';
 
 import Content from 'react-bulma-components/lib/components/content';
@@ -37,15 +37,12 @@ const ProjectContent = (props) => {
         if ( !selectedID ) {
             setSelectedID(defaultID)
         }
-    })
-
-    // useEffect(() => {
-    //         clearTimeout(delayHoverHandler)
-    // }, [hoveringID])
+    }, [defaultID, selectedID, titles] )
 
     const onClickCallback = (id) => {
         setSelectedID(id)
         setHoveringID(null)
+        clearTimeout(delayHoverHandler)
     }
     const onMouseEnterCallback = (id) => {
         setDelayHoverHandler(setTimeout(() => {

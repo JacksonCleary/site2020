@@ -1,21 +1,49 @@
-import React from "react"
+import React, {useState} from "react"
 import { Link } from "gatsby"
-
 import Container from 'react-bulma-components/lib/components/container';
 import Section from 'react-bulma-components/lib/components/section';
+import { Twirl as Hamburger } from 'hamburger-react'
+import OffCanvas from 'react-aria-offcanvas'
+import Navigation from './primaryNavigation'
 
 const Layout = ({ location, title, children }) => {
-  // const rootPath = `${__PATH_PREFIX__}/`
   let header
   let date = new Date().getFullYear()
+  let offCanvasStyles
 
-    header = (
-      <h1>
-        <Link to={`/`} >
-          {title}
-        </Link>
-      </h1>
-    )
+  const [isOpen, setOpen] = useState(false)
+
+  const toggleOpen = () => {
+    setOpen(!isOpen)
+  }
+
+  header = (
+    <>
+      <div className="headerContent vertical_align">
+        <Hamburger 
+            toggled={isOpen} 
+            toggle={setOpen}
+        />
+        <h1>
+          <Link to={`/`} >
+            {title}
+          </Link>
+        </h1>
+        <Navigation />
+      </div>
+    </>
+  )
+
+  offCanvasStyles = { 
+    overlay: {
+      background: 'none'
+    }, 
+    content: {
+      background: 'rgb(110, 177, 216)',
+      height: '100vh'
+    }
+  }
+
   return (
     <div>
       <div id="stage"></div>
@@ -36,6 +64,16 @@ const Layout = ({ location, title, children }) => {
         </Section>
        
       </footer>
+      <OffCanvas
+          isOpen={isOpen}
+          onClose={toggleOpen}
+          labelledby="menu-button"
+          style={offCanvasStyles}
+          width="400px"
+        >
+          {header}
+          <Navigation mobile={true} />
+        </OffCanvas>
     </div>
   )
 }

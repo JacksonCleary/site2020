@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { Field, Control, Label, Input, Textarea, Help, Checkbox } from 'react-bulma-components/lib/components/form'
+import { Field, Control, Label, Input, Textarea, Help } from 'react-bulma-components/lib/components/form'
 import Button from 'react-bulma-components/lib/components/button'
 
 
@@ -31,7 +31,8 @@ class ContentForm extends React.Component {
             val: '',
             valid: false,
             touched: false
-        }
+        },
+        thankYouMessage: ''
     }
 
     handleInputChange = (event) => {
@@ -79,9 +80,6 @@ class ContentForm extends React.Component {
             })
         })
        
-
-        
-        
     }
 
     validateText = (val) => {
@@ -110,12 +108,35 @@ class ContentForm extends React.Component {
     isFormValid = () => {
         return ( this.state.theName.valid && this.state.theEmail.valid && this.state.theMessage.valid )
     }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        console.log('sending')
+        var name = this.state.theName.val
+        var email = this.state.theEmail.val
+        var message = this.state.theMessage.val
+        var params = 'formName=' + name + '&formEmail=' + email + '&formComment=' + message
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', 'mail.php', true)
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        xhr.onreadystatechange = function () { //Call a function when the state changes.
+            this.setState({thankYouMessage: ''})
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                this.setState({thankYouMessage: 'Thanks! I\'ll be in touch.'})
+            } else {
+                this.setState({thankYouMessage: 'Sorry, something went wrong. Please reach me through LinkedIn!'})
+            }
+        }
+
+        xhr.send(params)
+    }
   
     render() {
         return (
             
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit} method="POST">
                     <Field>
                         <Label>Name</Label>
                         <Control>
@@ -172,6 +193,7 @@ class ContentForm extends React.Component {
                             >Submit</Button>
                         </Control>
                     </Field>
+                    <p>{this.state.thankYouMessage}</p>
                 </form>
             </div>
         )

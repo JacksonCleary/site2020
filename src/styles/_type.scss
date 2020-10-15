@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6, label {
     font-family: Montserrat, sans-serif;
 }
 
-header #headerSection h1 {
+.headerContent h1 {
     color: #ECE4DE;
 }
 
@@ -26,6 +26,43 @@ body {
             }
         }
     }
+    .desktop {
+
+        .menu-list li {
+            display: inline-block;
+            margin-top: 0;
+            margin-bottom: 0;
+            a { 
+                color: #2f3e46;
+                &:hover, &:focus, &:active, &.active {
+                    color: #6eb1d8;
+                    background: #ECE4DE
+                }
+            }
+        }
+
+    }
+
+    .mobile {
+
+        .menu-list li {
+            a { 
+                color: #2f3e46;
+                border-left: 5px solid #6eb1d8;
+                border-right: 5px solid #6eb1d8;
+                &:hover, &:focus, &:active, &.active {
+                    color: #6eb1d8;
+                    background: #ECE4DE
+                }
+            }
+        }
+
+    }
+
+    .menu-list {
+        a { transition: background-color 0.3s ease-in-out; }
+    }
+    
 }
 
 li {

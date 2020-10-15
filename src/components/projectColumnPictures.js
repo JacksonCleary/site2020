@@ -54,7 +54,7 @@ const ProjectColumnPictures = (props) => {
         const hasThumbs = thumbs[ isSelected ] || []
 
         if ( isSelected && hasImages && hasThumbs ) {
-            if (selectedID || hoveringID && selectedID !== hoveringID ) {
+            if ( ( selectedID || hoveringID ) && selectedID !== hoveringID ) {
                 for( var j = 0; j < hasImages.length; j++ ) {
                     let content
                     let ind = j
@@ -72,6 +72,7 @@ const ProjectColumnPictures = (props) => {
                                     hasThumbs[j].childImageSharp.fluid
                                 } alt="" />
                                 <a 
+                                    href="javascript:void(0)"
                                     className={"dIcon magnifying-glass modalOpen-" +j} 
                                     onClick={() => {
                                         openModal(src,hasImages, ind)

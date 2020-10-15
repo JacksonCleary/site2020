@@ -12230,6 +12230,14 @@ rc@^1.2.7, rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-aria-offcanvas@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/react-aria-offcanvas/-/react-aria-offcanvas-1.4.2.tgz#54c6881cc2fca702b799d7b343ee188c4ebcb121"
+  integrity sha512-8XLqn7dqVsRYCiYK57LN/Lq1Ge2rVRx60qamQ1RMkKYXBfk4rP6S9IrFoXWiSX8Yp2hJU+MRfzwF4NimSzlvig==
+  dependencies:
+    prop-types "^15.7.2"
+    run-event-handler-once "^1.0.2"
+
 react-body-classname@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/react-body-classname/-/react-body-classname-1.3.1.tgz#f9542289fb99ee7eaf5792e1d852cc88e4d810a0"
@@ -13066,6 +13074,11 @@ run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.4.1.tgz#8440eccf99ea3e70bd409d49aab88e10c189a455"
   integrity sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==
+
+run-event-handler-once@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/run-event-handler-once/-/run-event-handler-once-1.0.2.tgz#4d85a9bf78859fdd76eb6796637c64b60067770c"
+  integrity sha512-ZCTACJVYODJ1Ver0WMfoIN8SKmln+TgJ0W17m/Ka7PMhHwVU97XK2GkLeww6azYqlaM9UjnaWqz124F+ZtH5SA==
 
 run-parallel@^1.1.9:
   version "1.1.9"

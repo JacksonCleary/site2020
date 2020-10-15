@@ -7,3 +7,7 @@ thumbs: ['portfolio/thumbs/_thumb_bioclear_home.jpg', 'portfolio/thumbs/_thumb_b
 ---
 
 ## Bioclear
+
+By Dentists, For Dentists.
+
+Bioclear Matrix wanted to revamp their online presence and offer the ability to find other Dentists, register for online classes, and make reordering dental supplies easier for their customers.

@@ -34,6 +34,7 @@ class ProjectColumnName extends React.Component {
     render(){
         return (
                 <a 
+                    href="javascript:void(0)"
                     className={`${this.props.isSelected} ${this.state.hover}`}
                     key={this.props.dataKey}
                     onClick={() => this.handleOnClickTitle(this.props.dataKey)}

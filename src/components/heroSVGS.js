@@ -17,16 +17,16 @@ const HeroSVGS = ( props ) => {
         setSize()
     }, []);
 
+    const handleResize =  EventFunctions.debounce( function(){
+        setSize()
+    }, 300 )
+
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [handleResize]);
-
-    const handleResize =  EventFunctions.debounce( function(){
-        setSize()
-    }, 300 )
 
     const setSize = () => {
 

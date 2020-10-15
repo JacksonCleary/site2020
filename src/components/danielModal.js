@@ -27,6 +27,8 @@ Modal.setAppElement('#___gatsby');
 const DanielModal = (props) => { 
 
     const myRef = useRef(null)
+    const scrollToRef = (ref) => ref.current !== null ? ref.current.scrollTo(0, 0) : null
+    const executeScroll = (myRef) => scrollToRef(myRef) 
 
     const makeModalObject = (path,currentIndex) => {
         
@@ -128,14 +130,18 @@ const DanielModal = (props) => {
         return () => {
             window.removeEventListener('keydown', handleUserKeyPress);
         };
-    }, [handleUserKeyPress]);
+    }, [handleUserKeyPress]);    
+
+    useEffect(() => {
+       executeScroll(myRef)
+    }, [props.imgSrc])
 
 
     const displayModal = () => {
 
         let prev = () => {
             return modalObj.prevModalSrc.active ? 
-                                <a 
+                                <button
                                     className="projectNav projectNavPrevious"
 
                                     onClick={ () => {
@@ -144,12 +150,12 @@ const DanielModal = (props) => {
                                             modalObj.prevModalSrc.ind
                                         )
                                     } }
-                                ><span>Previous</span></a> 
+                                ><span>Previous</span></button> 
                                 : ''
         }
         let next = () => {
             return modalObj.nextModalSrc.active ? 
-                                <a 
+                                <button
                                     className="projectNav projectNavNext"
                                     onClick={ () => { 
                                         processParentPropBind(
@@ -157,7 +163,7 @@ const DanielModal = (props) => {
                                             modalObj.nextModalSrc.ind
                                         )
                                     } }
-                                ><span>Next</span></a> 
+                                ><span>Next</span></button> 
                                 : ''
         }
        
@@ -182,13 +188,6 @@ const DanielModal = (props) => {
             </Modal>
         )
     }
-
-    const scrollToRef = (ref) => ref.current !== null ? ref.current.scrollTo(0, 0) : null
-    const executeScroll = (myRef) => scrollToRef(myRef) 
-
-    useEffect(() => {
-       executeScroll(myRef)
-    }, props.imgSrc)
 
     return (
         <>
