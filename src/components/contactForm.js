@@ -120,7 +120,7 @@ class ContentForm extends React.Component {
         var xhr = new XMLHttpRequest()
         xhr.open('POST', 'mail.php', true)
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-        xhr.onreadystatechange = function () { //Call a function when the state changes.
+        xhr.onreadystatechange = () => { //Call a function when the state changes.
             this.setState({thankYouMessage: ''})
             if (xhr.readyState == 4 && xhr.status == 200) {
                 this.setState({thankYouMessage: 'Thanks! I\'ll be in touch.'})
