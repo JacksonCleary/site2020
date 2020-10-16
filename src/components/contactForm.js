@@ -8,6 +8,7 @@
 import React from 'react'
 import { Field, Control, Label, Input, Textarea, Help } from 'react-bulma-components/lib/components/form'
 import Button from 'react-bulma-components/lib/components/button'
+import Loading from './loader'
 
 
 class ContentForm extends React.Component {
@@ -32,7 +33,8 @@ class ContentForm extends React.Component {
             valid: false,
             touched: false
         },
-        thankYouMessage: ''
+        thankYouMessage: '',
+        showLoading: false
     }
 
     handleInputChange = (event) => {
@@ -112,16 +114,24 @@ class ContentForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log('sending')
+        this.setState({
+            showLoading: true,
+            disabled: true
+        })
         var name = this.state.theName.val
         var email = this.state.theEmail.val
         var message = this.state.theMessage.val
         var params = 'formName=' + name + '&formEmail=' + email + '&formComment=' + message
 
         var xhr = new XMLHttpRequest()
-        xhr.open('POST', 'mail.php', true)
+        xhr.open('POST', 'https://jacksonweb.dev/mail.php', true)
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
         xhr.onreadystatechange = () => { //Call a function when the state changes.
             this.setState({thankYouMessage: ''})
+            this.setState({
+                showLoading: false,
+                disabled: false
+            })
             if (xhr.readyState == 4 && xhr.status == 200) {
                 this.setState({thankYouMessage: 'Thanks! I\'ll be in touch.'})
             } else {
@@ -193,8 +203,10 @@ class ContentForm extends React.Component {
                             >Submit</Button>
                         </Control>
                     </Field>
-                    <p>{this.state.thankYouMessage}</p>
+                    
+                    { this.state.showLoading ? <Loading /> : null }
                 </form>
+                <p>{this.state.thankYouMessage}</p>
             </div>
         )
     }

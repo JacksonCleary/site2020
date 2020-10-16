@@ -46,6 +46,9 @@
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"
   },
+  "resolutions": {
+    "sharp": "0.24.0"
+  },
   "devDependencies": {
     "prettier": "2.1.0"
   },
