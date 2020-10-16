@@ -12,11 +12,13 @@ const PrimaryNavigation = (props) => {
 
     const isMobile = ( props.mobile ) ? true : false
     const mobileClass = ( isMobile ) ? 'mobile' : 'desktop'
-    
+
   return (
     
     <>
-    <Menu className={'socialButtons ' + mobileClass}>
+    <Menu 
+        className={'socialButtons ' + mobileClass}
+    >
       <Menu.List>
         <Menu.List.Item renderAs="div">
             <a href={`https://github.com/JacksonCleary/`} target="_blank" title="Github" rel="noopener">

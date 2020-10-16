@@ -75,6 +75,7 @@ const Layout = ({ location, title, children }) => {
         >
           {header}
           <Navigation mobile={true} />
+          <Social mobile={true} />
         </OffCanvas>
     </div>
   )
