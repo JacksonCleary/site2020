@@ -12,9 +12,11 @@ const HeroSVGS = ( props ) => {
 
     const [width, setWidth] = useState(0);
     const [height, setHeight] = useState(0);
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setSize()
+        setLoaded(true)
     }, []);
 
     const handleResize =  EventFunctions.debounce( function(){
@@ -45,11 +47,15 @@ const HeroSVGS = ( props ) => {
                     parent_height={height}
                 >
                 </SunSVG>
-                <TextSVG
-                    parent_width={width}
-                    parent_height={height}
-                >
-                </TextSVG>
+                {
+                    loaded ?
+                        <TextSVG
+                            parent_width={width}
+                            parent_height={height}
+                        >
+                        </TextSVG>
+                    : null
+                }
             </div>
             <div id="treesContainer">
                 <div id="tree1" className="trees"></div>

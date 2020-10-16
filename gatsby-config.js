@@ -92,6 +92,7 @@ module.exports = {
       options: {
         includePaths: ["./src/styles"],
       },
-    }
+    },
+    `gatsby-plugin-htaccess`
   ]
 }

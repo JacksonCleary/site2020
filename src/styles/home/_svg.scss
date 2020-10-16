@@ -172,6 +172,9 @@
 }
 
 @media screen and ( max-width: 768px ) {
+    #treesContainer {
+        margin-bottom: -150px;
+    }
 
     #textSVGContainer {
         transform: scale(0.75);

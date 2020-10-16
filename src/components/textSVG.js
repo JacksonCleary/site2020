@@ -48,7 +48,7 @@ const TextSVG = ( props ) => {
                 <path 
                     id="curveLine" 
                     d={"M 12 168 A 200 60 4 0 1 346 168"}
-                    transform={"translate(" + centeredTextX + ", " + ( centeredTextY +13 ) + ")"}
+                    transform={"translate(" + centeredTextX + ", " + ( centeredTextY + 13 ) + ")"}
                     strokeWidth={5}
                 />
 
@@ -78,7 +78,7 @@ const TextSVG = ( props ) => {
                                     textAnchor="middle"
                                     width={textWidth} 
                                     height={textHeight}
-                                    dx={spacing + (index * 0.65)}
+                                    dx={spacing - (index * 0.65)}
                                 >
                                     <textPath xlinkHref="#curve">
                                         { val }
