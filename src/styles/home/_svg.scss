@@ -180,4 +180,12 @@
         transform: scale(0.75);
     }
 
+    #curveLine {
+        transform: scale(0.75) translateY(10%);
+    }
+    #textSVGContainer #textSVG.animate text.textBack,
+    #textSVGContainer #textSVG.animate text.textFront {
+        transform: scale(0.75);
+    }
+
 }
