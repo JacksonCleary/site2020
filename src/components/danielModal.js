@@ -134,7 +134,7 @@ const DanielModal = (props) => {
 
     useEffect(() => {
        executeScroll(myRef)
-    }, [props.imgSrc])
+    }, [props.selectedImagePath])
 
 
     const displayModal = () => {
