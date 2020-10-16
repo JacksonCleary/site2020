@@ -5,6 +5,7 @@ import Section from 'react-bulma-components/lib/components/section';
 import { Twirl as Hamburger } from 'hamburger-react'
 import OffCanvas from 'react-aria-offcanvas'
 import Navigation from './primaryNavigation'
+import Social from './primarySocial'
 
 const Layout = ({ location, title, children }) => {
   let header
@@ -30,6 +31,7 @@ const Layout = ({ location, title, children }) => {
           </Link>
         </h1>
         <Navigation />
+        <Social />
       </div>
     </>
   )

@@ -19,9 +19,9 @@ const PrimaryNavigation = (props) => {
     <Menu className={mobileClass}>
       <Menu.List>
         <Menu.List.Item renderAs="div">
-            <Link to={`/`} activeClassName="active" >
-                Home
-            </Link>
+            <a href={`/resume.pdf`} target="_blank" title="Resume" rel="noopener">
+                Resume
+            </a>
         </Menu.List.Item>
         <Menu.List.Item renderAs="div">
             <Link to={`/work`} activeClassName="active" >
