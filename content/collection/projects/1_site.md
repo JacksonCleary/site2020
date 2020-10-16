@@ -10,4 +10,4 @@ My site was starting to look a little dated.
 
 Since React and GraphQL are the new hotness these days, I wanted to dive in and start fresh to see what I could harness in web components.
 
-Then everything changed with Gatsby peaked its head around the corner. This framework is __fast__.
+Then everything changed when Gatsby peaked its head around the corner. This framework is __fast__.

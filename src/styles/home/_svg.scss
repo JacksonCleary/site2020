@@ -170,3 +170,11 @@
     }
 
 }
+
+@media screen and ( max-width: 768px ) {
+
+    #textSVGContainer {
+        transform: scale(0.75);
+    }
+
+}
