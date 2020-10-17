@@ -55,9 +55,16 @@ const TextSVG = ( props ) => {
                 {
                     textArr.map((val, index) => {
                         let spacingModifer = 29
-                        let spacing = index===0 ? 1 : 1 + (index * spacingModifer)
+                        let spacing = index===0 ? 1 : Math.floor( 1 + (index * spacingModifer) )
+                        let translateX = spacing + Math.floor( (index * 0.65) )
+                        let translateXAfter = spacing + 3
+                        let ID = "SVGTextFragment_" + index
+                        let animateKey = "textAreaFront_" + index
                         return (
-                            <React.Fragment key={"SVGTextFragment_" + index}>
+                            <React.Fragment key={ID}>
+                                <defs>
+                                    
+                                </defs>
                                 <text 
                                     key={"textAreaBack_" + index}
                                     className="textBack"
@@ -72,18 +79,29 @@ const TextSVG = ( props ) => {
                                     </textPath>
                                 </text>
                                 <text 
-                                    key={"textAreaFront_" + index}
+                                    key={animateKey}
+                                    id={animateKey}
                                     className="textFront"
                                     dominantBaseline="middle" 
                                     textAnchor="middle"
                                     width={textWidth} 
                                     height={textHeight}
-                                    dx={spacing - (index * 0.65)}
+                                    dx={translateX}
                                 >
                                     <textPath xlinkHref="#curve">
                                         { val }
                                     </textPath>
+                                    <animate 
+                                        id={ID} 
+                                        attributeName="dx" 
+                                        from={translateX} 
+                                        to={translateXAfter} 
+                                        begin="2.5s" 
+                                        dur="1s"
+                                        fill="freeze">
+                                    </animate>
                                 </text>
+
                             </React.Fragment>
                         )
                     })

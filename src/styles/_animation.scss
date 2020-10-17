@@ -71,6 +71,20 @@
     }
 }
 
+@keyframes perspectiveNormal {
+    0% {
+        -webkit-perspective: 140px;
+        perspective: 140px;
+        animation-timing-function: ease-in-out;
+    }
+
+    100% {
+        -webkit-perspective: 200px;
+        perspective: 200px;
+      animation-timing-function: ease-in-out;
+    }
+}
+
 // React Modal Class Transitions:
 .ReactModal__Overlay {
     opacity: 0;

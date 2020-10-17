@@ -96,6 +96,13 @@
     left: 0;
     overflow: hidden;
 
+    animation-name: perspectiveNormal;
+    animation-duration: 1000ms;
+    animation-delay: 2500ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
     #textSVG {
         -webkit-transform: rotateX(2deg) rotateY(-15deg);
         transform: rotateX(2deg) rotateY(-15deg);
@@ -150,26 +157,25 @@
                     animation-timing-function: ease-in-out, ease-in-out;
                     animation-iteration-count: 1, 1;
                     animation-fill-mode: forwards;
-                    // animation-name: strokeDashOffsetOut;
-                    // animation-duration: 9000ms;
-                    // animation-delay: 0ms;
-                    // animation-timing-function: ease-in-out;
-                    // animation-iteration-count: 1;
-                    // animation-fill-mode: forwards;
                 }
             }
-            #curveLine {
-                animation-name: strokeDashOffsetOut;
-                animation-duration: 1000ms;
-                animation-delay: 1500ms;
-                animation-timing-function: ease-in-out;
-                animation-iteration-count: 1;
-                animation-fill-mode: forwards;
-            }
+            
         }
 
     }
 
+}
+
+
+@media screen and ( min-width: 769px ) {
+    #textSVG.animate #curveLine {
+        animation-name: strokeDashOffsetOut;
+        animation-duration: 1000ms;
+        animation-delay: 1500ms;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
 }
 
 @media screen and ( max-width: 768px ) {
